@@ -7,7 +7,7 @@ model = joblib.load("model.pkl")
 
 app = FastAPI()
 
-@app.get("/predict")
+@app.post("/predict")
 def predict(sepal_length: int, sepal_width: int, petal_length: int, petal_width: int):
     arr = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
     return {
